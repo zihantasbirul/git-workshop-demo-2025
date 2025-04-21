@@ -1,11 +1,18 @@
 # Git Introduction Workshop
 
-## Scan Me!
-<img src="https://github.com/radmanesh/git-workshop-demo-2025/qrcodde.png" alt="QR Code for Git Workshop Repository" />
+### <br />
 
-### [2-Page Git Cheat-Sheet (PDF)](https://github.com/radmanesh/git-workshop-demo-2025/CheatSheed.pdf)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/radmanesh/git-workshop-demo-2025/refs/heads/main/qrcode.png" alt="QR Code for Git Workshop Repository" />
+</div>
 
-### [2-Page Git Cheat-Sheet (Word)](https://sooners-my.sharepoint.com/:w:/g/personal/radmanesh_ou_edu/EcvNItznhIBIm9Ww8eEB0MgBiE_Q_z5UXmcURAlwQ_-xDw)
+## <div align="center">SCAN ME!</div>
+
+### <div align="center">[2-Page Git Cheat-Sheet (PDF)](https://raw.githubusercontent.com/radmanesh/git-workshop-demo-2025/refs/heads/main/CheatSheed.pdf)</div>
+
+<a href="CheatSheet.pdf" class="image fit"><img src="CheatSheet.png" alt="">2-Page Cheat-Sheet</a>
+
+### <div align="center"> [2-Page Git Cheat-Sheet (Word)](https://sooners-my.sharepoint.com/:w:/g/personal/radmanesh_ou_edu/EcvNItznhIBIm9Ww8eEB0MgBiE_Q_z5UXmcURAlwQ_-xDw)</div>
 
 ---
 
