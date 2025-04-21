@@ -1,107 +1,253 @@
-# Git Workshop 2025 demo repository
-git-workshop-demo-2025 A demo of conflicts in git
+# Git Introduction Workshop
 
-# Git Workshop — 2‑Page Cheat‑Sheet
+## Scan Me!
+<img src="https://github.com/radmanesh/git-workshop-demo-2025/qrcodde.png" alt="QR Code for Git Workshop Repository" />
 
-## 0 · First‑Time Setup
-```
-git --version                               # confirm install
-git config --global user.name  "Your Name"
-git config --global user.email "you@ou.edu"
-git config --global init.defaultBranch main
-touch .gitignore                            # list files/folders to skip
-```
+### [2-Page Git Cheat-Sheet (PDF)](https://github.com/radmanesh/git-workshop-demo-2025/CheatSheed.pdf)
+
+### [2-Page Git Cheat-Sheet (Word)](https://sooners-my.sharepoint.com/:w:/g/personal/radmanesh_ou_edu/EcvNItznhIBIm9Ww8eEB0MgBiE_Q_z5UXmcURAlwQ_-xDw)
 
 ---
 
-## 1 · Create / Get a Repository
-```
-git init               # start new repo in current directory
-git clone <URL>        # copy existing repo
-```
+## Welcome & Objectives
+
+### What is Git and Why Use It?
+- **Distributed version control** (tracks changes, supports collaboration, maintains history)
+- Created in 2005 by Linus Torvalds, the creator of Linux
+- Compared to SVN and Mercurial:
+  - **Distributed architecture**
+  - More flexible workflow
+- Relevance for graduate students:
+  - Efficient tracking of research and development
+  - Enables collaboration
+  - Operates offline
+  - Industry-standard tool
 
 ---
 
-## 2 · Everyday Workflow
-```
-git status                         # what changed?
-git add <file> | .                 # stage work
-git commit -m "brief message"      # snapshot
-git log --oneline --graph          # history
-git diff [<base> <tip>]            # line‑level changes
-```
-> **File states:** *working* ➜ *staged* ➜ *committed*
+## Git Basic Definitions
+
+| Concept | Description |
+|---------|-------------|
+| **Repository (repo)** | Project tracked by Git, can be local or remote (e.g., GitHub, GitLab). |
+| **Commit** | Snapshot of project state at a certain point, with descriptive message. |
+| **Branch** | Separate development line; used for features without disturbing main project. |
+| **Merge** | Combines changes from different branches. |
+| **Clone** | Copies a remote repository to your local machine. |
+| **Push/Pull** | Send commits to remote repository / Retrieve updates from remote repository. |
+| **Fork** | Personal copy of another user's repository on GitHub/GitLab. |
 
 ---
 
-## 3 · Branching & Switching
+## First-Time Setup
+
+### Installation & Setup
+- [Create GitHub account](https://github.com/)
+- Install Git ([Windows/Mac/Linux](https://git-scm.com/downloads))
+- Configure Git globally:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
 ```
-git branch                  # list local branches
-git branch <feat>           # create branch
-git switch <feat>           # move to branch  (or: git checkout <feat>)
-git switch -c <feat>        # create **and** switch
+- Create and clone repository from GitHub:
+```bash
+git clone <repo-link>
 ```
+
+### Starting a Repository
+- Initialize local repository:
+```bash
+git init
+```
+- File states: **Untracked**, **Staged**, **Committed**
 
 ---
 
-## 4 · Merging & Conflicts
-```
-git merge <source‑branch>         # into current branch
-# conflict markers look like:
-<<<<<<< HEAD
-local change
-=======
-incoming change
->>>>>>>
-# resolve, then:
+## Basic Workflow
+
+### Adding Changes
+```bash
 git add <file>
-git commit                        # finish merge
+git add .
 ```
-*Fast‑forward = linear history · 3‑way = true merge commit*
+
+### Making a Commit
+```bash
+git commit -m "commit message"
+git status
+git log --oneline
+```
+
+### Using Git Diff
+- View unstaged changes:
+```bash
+git diff
+```
+- Diff between commits:
+```bash
+git diff <commit1> <commit2>
+```
+- Diff staged changes:
+```bash
+git diff --staged
+```
+
+### Inspecting the Repository
+- Check repository status:
+```bash
+git status
+```
+- Inspect commit details:
+```bash
+git show <commit>
+```
 
 ---
 
-## 5 · Remotes (GitHub)
+## Branching & Merging
+
+### Why Branching Matters
+- Enables isolated feature development
+- Keeps main branch stable
+
+### Creating & Switching Branches
+- Create and switch branches:
+```bash
+git branch <branch-name>
+git switch <branch-name>
 ```
-git remote add origin <URL>       # link once
-git push -u origin main           # first push (sets upstream)
-git push                          # thereafter
-git pull                          # fetch + merge
-git fetch                         # fetch only
+- Shortcut to create and switch:
+```bash
+git switch -c <branch-name>
 ```
-*PR flow → push branch → open Pull Request → review → merge*
+
+### Merging Changes
+- Merge feature branch into main:
+```bash
+git switch main
+git merge <branch-name>
+```
+- Merge methods:
+  - Fast-forward (simple merges)
+  - 3-way merge (complex merges)
+- Resolve merge conflicts manually:
+  - Identify conflicts (`git status`, `git diff`)
+  - Edit conflicted files, remove markers, commit resolved changes
+
+### Branching Best Practices
+- Short-lived branches for features
+- Clear, descriptive branch names
+- Use graphical tools (`git log --graph --oneline --all`) for visualization
 
 ---
 
-## 6 · Undo & Time‑Travel
+## Working with Remotes
+
+### What Are Remotes?
+- Repositories on remote servers (GitHub)
+- Supports collaboration via pull requests and issue tracking
+
+### Setting Up SSH Keys
+- Create SSH keys:
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+cat ~/.ssh/id_ed25519.pub
 ```
-git restore <file>                # discard unstaged edits
-git revert <commit>               # safe undo (new commit)
-git reset --hard <commit>         # rewind branch (destructive)
-git switch -                      # return to previous branch
+- Add SSH key to GitHub under account settings
+
+### Adding a Remote
+```bash
+git remote add origin <URL>
+git remote -v
 ```
-*Detached HEAD?* `git switch main` (or new branch) to re‑attach.
+
+### Syncing Changes
+- Push commits:
+```bash
+git push origin <branch-name>
+```
+- Fetch and merge remote changes:
+```bash
+git pull origin <branch-name>
+```
+- Fetch without merging:
+```bash
+git fetch
+```
+
+### Forking vs. Cloning
+- **Fork**: Personal GitHub copy (common in open-source)
+- **Pull requests**: Propose merging your forked changes into original repository
 
 ---
 
-## 7 · Handy Shortcuts
+## Common Pitfalls & How to Fix Them
+
+### Merge Conflicts Exercise
+- Clone demo repository:
+```bash
+git clone https://github.com/radmanesh/git-workshop-demo-2025
 ```
-alias gs='git status -sb'
-alias gl='git log --oneline --graph --decorate --all'
-git stash / git stash pop         # shelve work‑in‑progress
+- Create branches:
+```bash
+git switch -c groupA-branch  # Group A
+git switch -c groupB-branch  # Group B
 ```
-`.gitignore` examples → `*.log`, `node_modules/`, `*.DS_Store`
+- Modify `team.txt`:
+  - Group A: Replace "Bob" with "Charlie"
+  - Group B: Replace "Bob" with "Dana"
+
+- Commit changes:
+```bash
+git add team.txt
+git commit -m "Changed Bob to Charlie"   # Group A
+git commit -m "Changed Bob to Dana"      # Group B
+```
+- Push changes:
+```bash
+git push origin groupA-branch
+git push origin groupB-branch
+```
+- Merge on GitHub: Merge Group A’s PR to main
+- Group B pulls main and faces conflicts:
+```bash
+git switch main
+git pull origin main
+git switch groupB-branch
+git merge main  # Resolve conflicts manually
+```
+
+### Detached HEAD State
+- Occurs checking out specific commit directly
+- Recover by switching to a branch:
+```bash
+git switch main  # or
+git switch -c new-branch
+```
+
+### Reverting vs. Resetting
+- Safely undo a commit:
+```bash
+git revert <commit>
+```
+- Rewrite history (with caution):
+```bash
+git reset --hard <commit>
+```
+
+### `.gitignore` Issues
+- Ignore files properly:
+  - `.gitignore` file
+  - Remove already-committed files:
+```bash
+git rm --cached <file>
+```
 
 ---
 
-## 8 · Best Practices
-- Commit **early** and **small**.  
-- One feature = one branch.  
-- Clear messages: `type: short summary` (e.g., `fix: handle null ID`).  
-- Keep `main` always deployable.  
-- Push **before** you pull requests from others.
-
----
-
-### Further Help
-`git help <command>`   |   [Pro Git Book](https://git-scm.com/book)   |   GitHub Learning Lab
+## Copilot Online Queries (Optional)
+- View repository history clearly:
+```bash
+git log --oneline --graph --decorate --all
+```
+- Document pull requests clearly with messages and comments for detailed collaboration.
