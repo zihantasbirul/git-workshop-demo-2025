@@ -8,11 +8,13 @@
 
 ## <div align="center">SCAN ME!</div>
 
-### <div align="center">[2-Page Git Cheat-Sheet (PDF)](https://raw.githubusercontent.com/radmanesh/git-workshop-demo-2025/refs/heads/main/CheatSheed.pdf)</div>
+### <div align="center"> [2-Page Git Cheat-Sheet (PDF)](https://raw.githubusercontent.com/radmanesh/git-workshop-demo-2025/refs/heads/main/CheatSheet.pdf)</div>
 
-<a href="CheatSheet.pdf" class="image fit"><img src="CheatSheet.png" alt="">2-Page Cheat-Sheet</a>
+<div align="center"><a href="CheatSheet.pdf" class="image fit"><img src="CheatSheet.png" alt=""></a></div>
 
 ### <div align="center"> [2-Page Git Cheat-Sheet (Word)](https://sooners-my.sharepoint.com/:w:/g/personal/radmanesh_ou_edu/EcvNItznhIBIm9Ww8eEB0MgBiE_Q_z5UXmcURAlwQ_-xDw)</div>
+
+### <div align="center"> [Git Introduction Workshop (Word)](https://sooners-my.sharepoint.com/:w:/r/personal/radmanesh_ou_edu/Documents/Git%20Introduction%20Workshop.docx?d=wdc22cdcb84e748809bd5b0f1e101d0c8&csf=1&web=1&e=pX0kRV)</div>
 
 ---
 
